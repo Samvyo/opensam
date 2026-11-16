@@ -1,22 +1,22 @@
 {
-  "name": "pipesam",
+  "name": "opensam-mediasoup",
   "version": "1.0.0",
-  "description": "The combined open source version of a pure mesh WebRTC + Mediasoup SFU + Pipecat AI bot capabilities to build next gen voice/video applications.",
+  "description": "Video conferencing on a mediasoup SFU, part of opensam.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Samvyo/pipesam.git"
+    "url": "git+https://github.com/Samvyo/opensam.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Samvyo/pipesam/issues"
+    "url": "https://github.com/Samvyo/opensam/issues"
   },
-  "homepage": "https://github.com/Samvyo/pipesam#readme",
+  "homepage": "https://github.com/Samvyo/opensam/tree/main/mediasoup#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.2.0",

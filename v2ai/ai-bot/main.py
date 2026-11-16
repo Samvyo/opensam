@@ -15,7 +15,7 @@ async def main():
         # Import here so errors are caught cleanly
         from src.pipeline.bot import run_bot
 
-        logger.info("=== Pipecat Voice Pipeline ===")
+        logger.info("=== v2ai Voice Pipeline ===")
         logger.info("Mic → Deepgram STT → Echo → Speaker")
         logger.info("==============================")
 

@@ -118,13 +118,9 @@ Before running the project, ensure the following are installed:
 ## 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Samvyo/opensam.git
 
-cd opensam
-
-git checkout development
-
-cd v2ai
+cd opensam/v2ai
 ```
 
 ---

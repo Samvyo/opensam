@@ -1,6 +1,3 @@
-# pipesam
-The combined open source version of a pure mesh WebRTC + Mediasoup SFU + Pipecat AI bot capabilities to build next gen voice/video applications. 
-
 # WebRTC Video Calling App
 
 Real-time multi-user video calling app built with WebRTC, Node.js, WebSocket, and React.
