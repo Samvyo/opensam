@@ -1,15 +1,14 @@
 # opensam
 
-The combined open-source POC (Proof of Concept) of a pure-mesh WebRTC stack, a
-mediasoup SFU, and an AI-native voice/video bot — three progressively richer
-building blocks for next-gen real-time voice/video applications.
+Open-source building blocks for real-time video and voice AI: a pure-mesh WebRTC
+call, a mediasoup SFU conference, and an AI participant that joins the call.
+Each one builds on the last, and each runs on your own machine with Docker Compose.
 
-> **The source code lives on the [`development`](https://github.com/Samvyo/opensam/tree/development) branch.**
-> `main` is the project landing page; check out `development` to run any of the projects.
+Free to read, run and change under the [MIT licence](LICENSE).
 
 ## Projects
 
-### 1. full-mesh — Peer-to-peer WebRTC calling
+### 1. `full-mesh` — Peer-to-peer WebRTC calling
 
 A real-time multi-user video calling app built on a pure WebRTC mesh, where every
 participant connects directly to every other participant (no media server in the
@@ -20,9 +19,9 @@ path). Node.js + WebSocket signalling, React UI, and a coturn TURN relay.
 - JWT-authenticated room access
 - Simplest architecture; best for small rooms.
 
-See [full-mesh/README.md](https://github.com/Samvyo/opensam/blob/development/full-mesh/README.md).
+See [full-mesh/README.md](full-mesh/README.md).
 
-### 2. mediasoup — SFU-based conferencing
+### 2. `mediasoup` — SFU-based conferencing
 
 The same experience re-architected on a **mediasoup SFU**: clients upload their
 media once and the server forwards it to everyone else, cutting client CPU and
@@ -33,9 +32,9 @@ bandwidth and scaling far better than a mesh.
 - Redis persistence, Prometheus + Grafana monitoring
 - Best for larger rooms.
 
-See [mediasoup/README.md](https://github.com/Samvyo/opensam/blob/development/mediasoup/README.md).
+See [mediasoup/README.md](mediasoup/README.md).
 
-### 3. v2ai — AI-native meeting bot
+### 3. `v2ai` — AI meeting participant
 
 An AI participant that joins a live mediasoup conference, listens, thinks, and
 speaks in real time. It pulls RTP audio (and VP8 video) off a mediasoup plain
@@ -49,22 +48,35 @@ transport and runs it through STT → LLM → TTS and vision pipelines.
 - Multi-provider Text-to-Speech: Cartesia / Deepgram / Kokoro
 - OpenTelemetry tracing, Docker-based deployment
 
-See [v2ai/README.md](https://github.com/Samvyo/opensam/blob/development/v2ai/README.md).
+You bring your own API keys for the speech and language models.
+See [v2ai/README.md](v2ai/README.md).
 
 ## Getting started
 
-The projects live on the `development` branch:
+You need Docker with Docker Compose. Clone the repository, open the folder for
+the project you want to run, and follow its README:
 
 ```bash
-git clone git@github.com:Samvyo/opensam.git
-cd opensam
-git checkout development
+git clone https://github.com/Samvyo/opensam.git
+cd opensam/full-mesh        # or mediasoup, or v2ai
+docker compose up --build
 ```
-
-Then open the folder for the project you want to run and follow its README:
 
 | Project | Folder | Best for |
 | --- | --- | --- |
-| Full-mesh WebRTC | [`full-mesh`](https://github.com/Samvyo/opensam/tree/development/full-mesh) | Small peer-to-peer rooms |
-| mediasoup SFU | [`mediasoup`](https://github.com/Samvyo/opensam/tree/development/mediasoup) | Larger, scalable conferences |
-| AI meeting bot | [`v2ai`](https://github.com/Samvyo/opensam/tree/development/v2ai) | Adding an AI participant to a conference |
+| Full-mesh WebRTC | [`full-mesh`](full-mesh/) | Small peer-to-peer rooms |
+| mediasoup SFU | [`mediasoup`](mediasoup/) | Larger, scalable conferences |
+| AI meeting participant | [`v2ai`](v2ai/) | Adding an AI participant to a conference |
+
+The `certs/` folders hold a self-signed `localhost` certificate so the browser
+apps run over HTTPS on your machine. They are for local development only; never
+use them for a deployment anyone else can reach.
+
+## Contributing
+
+Bug reports, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md)
+before you open an issue or a pull request.
+
+## Licence
+
+[MIT](LICENSE).
